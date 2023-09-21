@@ -159,6 +159,7 @@ h1 {
 /* screen section */
 .screen {
   margin: 0;
+  height: 100px;
   background-color: var(--Very-dark-desaturated-blue-screen-background);
   text-align: right;
   font-weight: 700;

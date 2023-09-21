@@ -190,7 +190,7 @@ h1 {
   margin: 1.8em 0 3em;
   display: grid;
   place-content: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 70px);
   grid-template-rows: 70px 70px 70px 70px 70px ;
   height: max-content;
 }

@@ -191,7 +191,7 @@ h1 {
   display: grid;
   place-content: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(75px, 1fr) ;
+  grid-template-rows: repeat(65px, 1fr) ;
   height: max-content;
 }
 .reset-btn {
@@ -232,7 +232,6 @@ h1 {
 }
 button {
   font-weight: 700;
-  
   border: none;
   background-color: var(--Light-grayish-orange-key-background);
   box-shadow: 0px 5px 0px 0px var(--Grayish-orange-key-shadow);

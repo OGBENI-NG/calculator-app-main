@@ -13,6 +13,9 @@ function App() {
 
   function handleButtonClick(value) {
     console.log(value);
+    if (value === 'x') {
+      value = '*';
+    }
     if (value === 'RESET') {
       // Clear input field
       setInput([]);
@@ -20,7 +23,8 @@ function App() {
     } else if (value === 'DEL') {
       // Remove the last element from the input
       setInput((prevInput) => prevInput.slice(0, -1));
-    } else if (value === '=') {
+    }  
+    else if (value === '=') {
       // Calculate the result when '=' is clicked
       try {
         const calculateResult = evaluateInput(input);
@@ -51,6 +55,7 @@ function App() {
 
   // Helper function to check if a value is an operator
   function isOperator(value) {
+    
     return ['+', '-', '*', '/'].includes(value);
   }
 

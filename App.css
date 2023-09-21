@@ -270,6 +270,8 @@ button:active {
     column-gap: .8em;
     row-gap: 1em;
     padding: 2em 1.2em;
+    grid-template-columns: repeat(4, 65px);
+    grid-template-rows: 65px 65px 65px 65px 65px ;
   }
   button.key-btn, button.equal-btn, button.reset-btn{
     font-size: 1.8em;

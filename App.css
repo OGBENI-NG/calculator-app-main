@@ -191,7 +191,7 @@ h1 {
   display: grid;
   place-content: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(65px, 1fr) ;
+  grid-template-rows: 75px 75px 75px 75px 75px ;
   height: max-content;
 }
 .reset-btn {
@@ -273,10 +273,11 @@ button:active {
   }
   button.key-btn, button.equal-btn, button.reset-btn{
     font-size: 1.8em;
-    padding: .6em;
+    
   }
   .delete-btn, button.reset-btn {
     font-size: 1.3em;
+   
   }
 
 }

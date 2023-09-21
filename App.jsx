@@ -12,7 +12,6 @@ function App() {
   const [result, setResult] = useState('');
 
   function handleButtonClick(value) {
-    console.log(value);
     if (value === 'x') {
       value = '*';
     }

@@ -47,9 +47,9 @@
 }
 
 .app {
-  height: 100vh;
-  overflow: hidden;
+  height: inherit;
   padding: 3em 1.2em;
+  overflow-x: hidden;
 }
 h1 {
   font-size: 3em;
@@ -58,15 +58,18 @@ h1 {
 .app.theme-one-theme {
   background-color: var(--Very-dark-desaturated-blue-main-background);
   color: var(--White);
+  height: 100vh;
   
 }
 .app.theme-two-theme{
   background-color: var(--Light-gray-main-background);
   color: var(--Very-dark-grayish-blue);
+  height: 100vh;
 }
 .app.theme-three-theme{
   background-color: var(--Very-dark-violet-main-background);
   color: var(--Light-yellow);
+  height: 100vh;
 }
 .header, .toggle-num-wrapper, .toggle-theme-wrapper {
   display: flex;

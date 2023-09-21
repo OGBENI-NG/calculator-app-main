@@ -276,13 +276,15 @@ button:active {
   button.key-btn, button.equal-btn, button.reset-btn{
     font-size: 1.8em;
     padding: .1em;
-
     
   }
   .delete-btn, button.reset-btn {
     font-size: 1.3em;
-    padding: .1em;
+    padding: .1em ;
    
+  }
+  button.reset-btn {
+    padding-right: .2em;
   }
 
 }

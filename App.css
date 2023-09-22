@@ -266,7 +266,15 @@ button:active {
   transform: translateY(4px);
 }
 
-@media (min-width: 370px)  {
+@media (max-width: 600px)  {
+
+  .app-inner {
+    overflow-x: auto;
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    padding: 2em 1.2em 0;
+  }
   .screen {
    padding: 1em;
   }
@@ -302,6 +310,44 @@ button:active {
     padding-right: .2em;
   }
 
+}
+@media (min-width: 768px) {
+  .app-inner {
+    width: 100%;
+    padding: 8em 3em;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: 100vh;
+  }
+  .buttons-wrapper-inner {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 80px);
+    grid-gap: 1em;
+  }
+  .screen {
+    height: 150px;
+  }
+  .screen h2 {
+    font-size: 4.5em;
+    margin-top: .5em;
+  }
+  .screen span {
+    font-size: 1.5rem;
+  }
+}
+@media  (min-width: 1140px) {
+  .app {
+    margin: auto;
+  }
+  .app-inner {
+    overflow: hidden;
+   padding: 1em;
+  }
+  .buttons-wrapper-inner {
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: 65px 65px 65px 65px 65px ;
+  }
 }
 
 

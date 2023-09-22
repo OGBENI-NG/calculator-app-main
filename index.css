@@ -9,7 +9,9 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
   font-style: 32px;
 }
-
+body {
+  max-width: 1440px;
+}
 
 
 

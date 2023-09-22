@@ -95,95 +95,97 @@ function App() {
   
   return (
     <main className={`app ${theme}-theme`}>
-      <Header/>
-      <div className={`screen ${theme}-theme`}>
-        <span className='result'>{input.join('')}</span>
-        <h2>
-          {resultValue}
-        </h2>
-      </div>
-      <section className={`buttons-wrapper ${theme}-theme`}>
-        <div className='buttons-wrapper-inner'>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >7</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >8</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >9</NumberButton>
-          {result ? (<NumberButton 
-            className={`delete-btn ${theme}-theme`}
-            onClick={clearInput}
-          >C</NumberButton>) : (<NumberButton 
-            className={`delete-btn ${theme}-theme`}
-            onClick={handleButtonClick}
-          >DEL</NumberButton>)}
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >4</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >5</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >6</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >+</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >3</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >2</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >1</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >-</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >.</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >0</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick} 
-          >/</NumberButton>
-          <NumberButton 
-            className={`key-btn ${theme}-theme`}
-            onClick={handleButtonClick}
-          >
-            x</NumberButton>
-          <NumberButton
-            className={`reset-btn ${theme}-theme`}
-            onClick={clearInput}
-          >
-            RESET</NumberButton>
-          <NumberButton 
-            className={`equal-btn ${theme}-theme`}
-            onClick={handleButtonClick}
-            disabled={!input.join('') ? true : false}
-          >
-            =</NumberButton>
+      <section className='app-inner'>
+        <Header/>
+        <div className={`screen ${theme}-theme`}>
+          <span className='result'>{input.join('')}</span>
+          <h2>
+            {resultValue}
+          </h2>
         </div>
+        <section className={`buttons-wrapper ${theme}-theme`}>
+          <div className='buttons-wrapper-inner'>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >7</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >8</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >9</NumberButton>
+            {result ? (<NumberButton 
+              className={`delete-btn ${theme}-theme`}
+              onClick={clearInput}
+            >C</NumberButton>) : (<NumberButton 
+              className={`delete-btn ${theme}-theme`}
+              onClick={handleButtonClick}
+            >DEL</NumberButton>)}
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >4</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >5</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >6</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >+</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >3</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >2</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >1</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >-</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >.</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >0</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick} 
+            >/</NumberButton>
+            <NumberButton 
+              className={`key-btn ${theme}-theme`}
+              onClick={handleButtonClick}
+            >
+              x</NumberButton>
+            <NumberButton
+              className={`reset-btn ${theme}-theme`}
+              onClick={clearInput}
+            >
+              RESET</NumberButton>
+            <NumberButton 
+              className={`equal-btn ${theme}-theme`}
+              onClick={handleButtonClick}
+              disabled={!input.join('') ? true : false}
+            >
+              =</NumberButton>
+          </div>
+        </section>
       </section>
     </main>
   );

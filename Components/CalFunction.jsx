@@ -33,7 +33,7 @@ function CalFunction() {
                         const calculateResult = evaluateInput(input)
                         setResult(calculateResult.toString())
                   } catch (error) {
-                        setResult('Error')
+                        setResult('')
                   }
             } else if (isOperator(value)) {
                   // Handle operator precedence without spaces
@@ -74,7 +74,7 @@ function CalFunction() {
                   for (let i = 1; i < tokens.length; i += 2) {
                         const operator = tokens[i]
                         const operand = parseFloat(tokens[i + 1])
-                        if (isNaN(operand)) return 'Error'
+                        if (isNaN(operand)) return '' 
                         if (operator === '+') result += operand
                         else if (operator === '-') result -= operand
                         else if (operator === '*') result *= operand

@@ -120,10 +120,18 @@ h1 {
 .toggle-placeholder.theme-three-theme{
   background-color: var(--Very-dark-violet-toggle-background-keypad-background-screen-background);
 }
+
 .num {
   font-size: 1.7rem;
   font-weight: 700;
 }
+.num-two {
+  color: var(--Orange-key-background-toggle);
+}
+.num-three {
+  color: var(--Pure-cyan-key-background-toggle);
+}
+
 .dot {
   height: 25px;
   width: 25px;

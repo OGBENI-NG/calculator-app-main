@@ -21,8 +21,8 @@ function Header() {
                               <div className='toggle-theme-inner'>
                                     <div className='toggle-num-wrapper'>
                                           <span className={`${theme === "theme-one" && "num"}`}>1</span>
-                                          <span className={`${theme === "theme-two" && "num"}`}>2</span>
-                                          <span className={`${theme === "theme-three" && "num"}`}>3</span>
+                                          <span className={`${theme === "theme-two" && "num num-two"}`}>2</span>
+                                          <span className={`${theme === "theme-three" && "num num-three"}`}>3</span>
                                     </div>
                                     <div className={`toggle-placeholder ${theme}-theme`} onClick={toggleTheme}>
                                           <div className={`dot ${togglePlaceholder}`}></div>

@@ -1,9 +1,19 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext()
 
 export default function UseContext({children}) {
-      const [theme, setTheme] = useState("theme-one")
+      const [theme, setTheme] = useState(storeThemeToLocalStorage)
+
+      //using localStorage to store the theme
+      function storeThemeToLocalStorage() {
+            const storeTheme = localStorage.getItem("theme")
+            return storeTheme ? storeTheme : "theme-one"
+      }
+
+      useEffect(() => {
+            localStorage.setItem("theme", theme)
+      },[theme])
 
       function toggleTheme() {
             if( theme === "theme-one" ) {

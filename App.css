@@ -60,7 +60,7 @@ h1 {
   color: var(--White);
   height: 100vh;
   
-}
+} 
 .app.theme-two-theme{
   background-color: var(--Light-gray-main-background);
   color: var(--Very-dark-grayish-blue);
@@ -155,14 +155,10 @@ h1 {
   -webkit-filter: drop-shadow(0px 0px 4px var(--Soft-cyan-key-shadow));
   filter: drop-shadow(0px 0px 4px var(--Soft-cyan-key-shadow));
 }
-
 /* screen section */
 .screen {
-  margin: 0;
-  height: 100px;
+  height: 105px;
   background-color: var(--Very-dark-desaturated-blue-screen-background);
-  text-align: right;
-  font-weight: 700;
   letter-spacing: 2px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -170,6 +166,13 @@ h1 {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
+.screen h2, .screen span {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .screen.theme-two-theme {
   background-color: var( --Very-light-gray-screen-background);
 }
@@ -216,6 +219,7 @@ h1 {
 .equal-btn {
   grid-column: -1/3;
 }
+
 .equal-btn.theme-one-theme {
   background-color: var(--Red-key-background-toggle);
   box-shadow: 0px 5px 0px 0px var(--Dark-red-key-shadow);
@@ -264,8 +268,18 @@ button:active {
 
 @media (min-width: 370px)  {
   .screen {
-    padding: .5em .3em;
-    font-size: 3rem;
+   padding: 1em;
+  }
+  .screen span {
+    font-size: 1rem;
+    margin-top: -.4em;
+    display: block;
+    text-align: right;
+  }
+  .screen h2 {
+    font-size: 3.5rem;
+    margin-top: .25em;
+    text-align: right;
   }
   .buttons-wrapper-inner {
     column-gap: .8em;

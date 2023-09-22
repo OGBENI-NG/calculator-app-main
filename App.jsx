@@ -13,13 +13,9 @@ function App() {
 
   function handleButtonClick(value) {
     if (value === 'x') {
-      value = '*';
+      value = '*'
     }
-    if (value === 'RESET') {
-      // Clear input field
-      setInput([]);
-      setResult('');
-    } else if (value === 'DEL') {
+    if (value === 'DEL') {
       // Remove the last element from the input
       setInput((prevInput) => prevInput.slice(0, -1));
     }  
@@ -54,11 +50,26 @@ function App() {
 
   // Helper function to check if a value is an operator
   function isOperator(value) {
-    
     return ['+', '-', '*', '/'].includes(value);
   }
+  function clearInput() {
+    setInput([])
+    setResult(0)
+  }  
 
-    // Replace your existing evaluateInput function with this one:
+  const resultValue = !input.join("") ? "0" : (
+    result || (() => {
+      let firstInput = '';
+      for (let i = 0; i < input.length; i++) {
+        if (isOperator(input[i])) {
+          break;
+        }
+        firstInput += input[i];
+      }
+      return firstInput;
+    })()
+  )
+
   function evaluateInput(inputArray) {
     try {
       const expression = inputArray.join('');
@@ -81,12 +92,16 @@ function App() {
       return 'Error';
     }
   }
-
   
   return (
     <main className={`app ${theme}-theme`}>
       <Header/>
-      <h2 className={`screen ${theme}-theme`}>{result || input.join('')}</h2>
+      <div className={`screen ${theme}-theme`}>
+        <span className='result'>{input.join('')}</span>
+        <h2>
+          {resultValue}
+        </h2>
+      </div>
       <section className={`buttons-wrapper ${theme}-theme`}>
         <div className='buttons-wrapper-inner'>
           <NumberButton 
@@ -101,10 +116,13 @@ function App() {
             className={`key-btn ${theme}-theme`}
             onClick={handleButtonClick} 
           >9</NumberButton>
-          <NumberButton 
+          {result ? (<NumberButton 
+            className={`delete-btn ${theme}-theme`}
+            onClick={clearInput}
+          >C</NumberButton>) : (<NumberButton 
             className={`delete-btn ${theme}-theme`}
             onClick={handleButtonClick}
-          >DEL</NumberButton>
+          >DEL</NumberButton>)}
           <NumberButton 
             className={`key-btn ${theme}-theme`}
             onClick={handleButtonClick} 
@@ -156,12 +174,13 @@ function App() {
             x</NumberButton>
           <NumberButton
             className={`reset-btn ${theme}-theme`}
-            onClick={handleButtonClick}
+            onClick={clearInput}
           >
             RESET</NumberButton>
           <NumberButton 
             className={`equal-btn ${theme}-theme`}
             onClick={handleButtonClick}
+            disabled={!input.join('') ? true : false}
           >
             =</NumberButton>
         </div>

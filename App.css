@@ -47,9 +47,14 @@
 }
 
 .app {
-  height: inherit;
   padding: 2em 1.2em;
   overflow-x: hidden;
+  height: 100vh;
+  -webkit-transition: .5s ease;
+  -moz-transition: .5s ease;
+  -ms-transition: .5s ease;
+  -o-transition: .5s ease;
+  transition: .5s ease;
 }
 h1 {
   font-size: 3em;
@@ -58,18 +63,15 @@ h1 {
 .app.theme-one-theme {
   background-color: var(--Very-dark-desaturated-blue-main-background);
   color: var(--White);
-  height: 100vh;
-  
 } 
 .app.theme-two-theme{
   background-color: var(--Light-gray-main-background);
   color: var(--Very-dark-grayish-blue);
-  height: 100vh;
+ 
 }
 .app.theme-three-theme{
   background-color: var(--Very-dark-violet-main-background);
   color: var(--Light-yellow);
-  height: 100vh;
 }
 .header, .toggle-num-wrapper, .toggle-theme-wrapper {
   display: flex;
@@ -265,9 +267,14 @@ button:active {
   -o-transform: translateY(4px);
   transform: translateY(4px);
 }
+@media (min-width: 375px){
+  .buttons-wrapper-inner {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(5, 65px) ;
+  }
+}
 
 @media (max-width: 600px)  {
-
   .app-inner {
     overflow-x: auto;
     position: absolute;
@@ -293,8 +300,8 @@ button:active {
     column-gap: .8em;
     row-gap: 1em;
     padding: 2em 1.2em;
-    grid-template-columns: repeat(4, 70px);
-    grid-template-rows: 65px 65px 65px 65px 65px ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 65px) ;
   }
   button.key-btn, button.equal-btn, button.reset-btn{
     font-size: 1.8em;
@@ -320,33 +327,76 @@ button:active {
     margin: auto;
     height: 100vh;
   }
+  .header {
+    padding-bottom: 1em;
+  }
   .buttons-wrapper-inner {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 80px);
     grid-gap: 1em;
+    padding: 2em;
   }
   .screen {
     height: 150px;
+    padding: 1.2em 2em;
+    text-align: right;
   }
   .screen h2 {
+    margin: 0;
     font-size: 4.5em;
-    margin-top: .5em;
+    margin-top: .2em;
   }
   .screen span {
     font-size: 1.5rem;
   }
+  button {
+    padding: 0;
+    font-size: 3rem;
+  }
+  .delete-btn, .reset-btn {
+    font-size: 2rem;
+  }
 }
-@media  (min-width: 1140px) {
-  .app {
-    margin: auto;
+@media  (min-width: 1024px) {
+  .app{
+    width: 100%;
+    max-width: 1440px;
+    height: 100vh;
   }
   .app-inner {
-    overflow: hidden;
-   padding: 1em;
+    padding:  2em 0;
+    margin: auto;
+    width: 500px;
+  }
+  .screen {
+    height: 85px;
+    margin-top: 0;
+    padding: 1em;
+  }
+  .screen h2 {
+    display: block;
+    font-size: 2.2rem;
+    padding-top: .3em;
+  }
+  .screen span {
+    display: block;
+    font-size: .8rem;
+    margin-top: -.5em;
+  }
+  button {
+    font-size: 1.5rem;
+    cursor: pointer;
   }
   .buttons-wrapper-inner {
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: 65px 65px 65px 65px 65px ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 50px);
+    padding: 2em 1em;
+  }
+  .delete-btn, .reset-btn {
+    font-size: 1.5rem;
+  }
+  .dot {
+    cursor: pointer;
   }
 }
 

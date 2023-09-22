@@ -1,11 +1,24 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import { ThemeContext } from '../Hook/UseContext'
 import NumberButton from './NumberButton'
 
 function CalFunction() {
       const { theme } = useContext(ThemeContext)
-      const [input, setInput] = useState([]) // Initialize as an empty array
-      const [result, setResult] = useState('')
+      const [input, setInput] = useState(() => {
+            const savedInput = localStorage.getItem('input')
+            return savedInput ? JSON.parse(savedInput) : []
+      })
+        
+      const [result, setResult] = useState(() => {
+            const savedResult = localStorage.getItem('result')
+            return savedResult ? savedResult : ''
+      })
+        
+      useEffect(() => {
+            localStorage.setItem('input', JSON.stringify(input))
+            localStorage.setItem('result', result)
+      }, [input, result])
+      
 
       function handleButtonClick(value) {
             if (value === 'x') {
@@ -14,59 +27,44 @@ function CalFunction() {
             if (value === 'DEL') {
                   // Remove the last element from the input
                   setInput((prevInput) => prevInput.slice(0, -1))
-            }  
-            else if (value === '=') {
+            }  else if (value === '=') {
                   // Calculate the result when '=' is clicked
                   try {
-                  const calculateResult = evaluateInput(input)
-                  setResult(calculateResult.toString())
+                        const calculateResult = evaluateInput(input)
+                        setResult(calculateResult.toString())
                   } catch (error) {
-                  setResult('Error')
+                        setResult('Error')
                   }
             } else if (isOperator(value)) {
                   // Handle operator precedence without spaces
                   setInput((prevInput) => {
-                  const trimmedInput = prevInput.join('').trim() // Join and remove leading/trailing spaces
-                  const lastChar = trimmedInput.charAt(trimmedInput.length - 1)
+                        const trimmedInput = prevInput.join('').trim() // Join and remove leading/trailing spaces
+                        const lastChar = trimmedInput.charAt(trimmedInput.length - 1)
 
-                  if (isOperator(lastChar)) {
-                  // Replace the last operator with the new one
-                  prevInput[prevInput.length - 1] = value
-                  return [...prevInput]
-                  } else {
-                  // Append the operator without spaces around it
-                  return [...prevInput, value]
-                  }
+                        if (isOperator(lastChar)) {
+                              // Replace the last operator with the new one
+                              prevInput[prevInput.length - 1] = value
+                              return [...prevInput]
+                        } else {
+                              // Append the operator without spaces around it
+                              return [...prevInput, value]
+                        }
                   })
             } else {
                   // Append the clicked button's value to the current input element
                   setInput((prevInput) => [...prevInput, value])
             }
-            }
+      }
 
-            // Helper function to check if a value is an operator
-            function isOperator(value) {
+      // Helper function to check if a value is an operator
+      function isOperator(value) {
             return ['+', '-', '*', '/'].includes(value)
-            }
-            function clearInput() {
+      }
+      function clearInput() {
             setInput([])
-            setResult(0)
-            }  
-
-            const resultValue = !input.join("") ? "0" : (
-            result || (() => {
-                  let firstInput = ''
-                  for (let i = 0; i < input.length; i++) {
-                  if (isOperator(input[i])) {
-                  break
-                  }
-                  firstInput += input[i]
-                  }
-                  return firstInput
-            })()
-            )
-
-            function evaluateInput(inputArray) {
+            setResult("")
+      }  
+      function evaluateInput(inputArray) {
             try {
                   const expression = inputArray.join('')
                   const tokens = expression.match(/(\d+(\.\d+)?)|(\+|\-|\*|\/)/g)
@@ -87,6 +85,21 @@ function CalFunction() {
                   return 'Error'
             }
       }
+      //display all first input values and result values
+      const resultValue = !input.join("") ? "0" : (
+            result || (() => {
+                  let firstInput = ''
+                  for (let i = 0; i < input.length; i++) {
+                        if (isOperator(input[i])) {
+                              break
+                        }
+                        firstInput += input[i]
+                  }
+                  return firstInput
+            })()
+      )
+      
+            
       return (
             <>
                   <div className={`screen ${theme}-theme`}>

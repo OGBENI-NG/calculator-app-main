@@ -1,9 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
 
+
 const ThemeContext = createContext()
 
 export default function UseContext({children}) {
       const [theme, setTheme] = useState(storeThemeToLocalStorage)
+      const[openHistory, setOpenHistory] = useState(false)
 
       //using localStorage to store the theme
       function storeThemeToLocalStorage() {
@@ -24,8 +26,11 @@ export default function UseContext({children}) {
                   setTheme("theme-one")
             }
       }
+      function toggle() {
+            setOpenHistory(prevToggle => !prevToggle)
+      }
       return (
-            <ThemeContext.Provider value={{theme, toggleTheme}}>
+            <ThemeContext.Provider value={{theme, toggleTheme, toggle, openHistory}}>
                   <div>{children}</div>
             </ThemeContext.Provider>
       )

@@ -118,6 +118,8 @@ function CalFunction() {
             className='bin'
             onClick={() => {
                   setHistory([])
+                  setInput([])
+                  setResult('')
                   localStorage.clear()
             }}
       />) : (

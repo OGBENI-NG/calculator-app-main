@@ -2,11 +2,11 @@ import React, {useContext, useState, useEffect} from 'react'
 import { ThemeContext } from '../Hook/UseContext'
 import NumberButton from './NumberButton'
 import {FiChevronDown} from "react-icons/fi"
-import {Ri24HoursFill, RiDeleteBinFill} from "react-icons/ri"
+import {RiDeleteBinFill} from "react-icons/ri"
 import {RiDeleteBinLine} from "react-icons/ri"
 
 function CalFunction() {
-      const { theme, toggle, openHistory } = useContext(ThemeContext)
+      const { theme, toggle, openHistory, toggleRef } = useContext(ThemeContext)
       const [history, setHistory] = useState(() => {
             const saveHistory = localStorage.getItem('history')
             return saveHistory ? JSON.parse(saveHistory) : []
@@ -135,12 +135,13 @@ function CalFunction() {
                   <span 
                         className='history' 
                         onClick={toggle}
+                        
                   >History 
                         <FiChevronDown 
                               className={`icon ${openHistory ? "chev-icon" : ""}`}
                         />
                   </span>
-                  <section className={`buttons-wrapper ${theme}-theme`}>
+                  <section className={`buttons-wrapper ${theme}-theme`} >
                         {openHistory ? (
                               <div className='history-wrapper'>
                                     {deleteIcons}

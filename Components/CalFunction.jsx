@@ -81,7 +81,6 @@ function CalFunction() {
                   const expression = inputArray.join('')
                   const tokens = expression.match(/(\d+(\.\d+)?)|(\+|\-|\*|\/)/g)
                   if (!tokens) return 'Error'
-
                   let result = parseFloat(tokens[0])
                   for (let i = 1; i < tokens.length; i += 2) {
                         const operator = tokens[i]
@@ -110,6 +109,20 @@ function CalFunction() {
                   return firstInput
             })()
       )
+      const entry = history.map((entry, index) => (
+            <p key={index}  className='history-result'>
+                  {entry}
+            </p>
+      ))
+      const deleteIcons = history.length ? (<RiDeleteBinFill 
+            className='bin'
+            onClick={() => {
+                  setHistory([])
+                  localStorage.clear()
+            }}
+      />) : (
+            <RiDeleteBinLine className='bin'/>
+      )
 
       return (
             <>
@@ -128,17 +141,10 @@ function CalFunction() {
                   <section className={`buttons-wrapper ${theme}-theme`}>
                         {openHistory ? (
                               <div className='history-wrapper'>
-                                    {history.length ? (<RiDeleteBinFill 
-                                          className='bin'
-                                          onClick={() => setHistory([])}
-                                    />) : (
-                                          <RiDeleteBinLine className='bin'/>
-                                    )}
-                                    {history.map((entry, index) => (
-                                          <p key={index} className='history-result'>
-                                                {entry}
-                                          </p>
-                                    ))}
+                                    {deleteIcons}
+                                    <div  className='entry-wrapper'>
+                                          {!history.length ? "No History" : entry}
+                                    </div>
                               </div>
                               ) : (
                               <div className='buttons-wrapper-inner'>

@@ -227,19 +227,23 @@ h1 {
 	}
 }
 .history-wrapper {
+  display: flex;
+  align-items: center;
   padding: 1em;
   font-size: 1.23rem;
   width: 100%;
-  height: inherit;
-  overflow-x: hidden;
+  height: auto;
   -webkit-animation: myAnim .5s ease 0s 1 normal forwards;
   animation: myAnim .5s ease 0s 1 normal forwards;
 }
+.history-result {
+  margin: 0;
+  padding: .3em 0;
+}
 .bin {
-  display: flex;
-  margin: 0 0 0 auto;
   font-size: 2rem;
-  width: max-content;
+  order: 2;
+  margin: 0 0 0 auto;
 }
 @keyframes myAnim {
 	0% {
@@ -256,10 +260,7 @@ h1 {
 		transform: translateY(0);
 	}
 }
-.history-wrapper p {
-  margin: -1.2em 0 2em;
 
-}
 .history {
   font-size: 1.2rem;
   padding: .4em 0 .2em;

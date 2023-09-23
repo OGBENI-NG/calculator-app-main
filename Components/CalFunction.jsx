@@ -6,7 +6,7 @@ import {RiDeleteBinFill} from "react-icons/ri"
 import {RiDeleteBinLine} from "react-icons/ri"
 
 function CalFunction() {
-      const { theme, toggle, openHistory, toggleRef } = useContext(ThemeContext)
+      const { theme, toggle, openHistory } = useContext(ThemeContext)
       const [history, setHistory] = useState(() => {
             const saveHistory = localStorage.getItem('history')
             return saveHistory ? JSON.parse(saveHistory) : []

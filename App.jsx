@@ -1,9 +1,8 @@
 
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import './App.css';
 import { ThemeContext } from './Hook/UseContext';
 import Header from './Components/Header';
-import NumberButton from './Components/NumberButton';
 import CalFunction from './Components/CalFunction';
 
 

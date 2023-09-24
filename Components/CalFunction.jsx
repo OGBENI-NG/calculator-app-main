@@ -7,15 +7,17 @@ import {RiDeleteBinLine} from "react-icons/ri"
 
 function CalFunction() {
       const { theme, toggle, openHistory } = useContext(ThemeContext)
+      //save history value to localStorage
       const [history, setHistory] = useState(() => {
             const saveHistory = localStorage.getItem('history')
             return saveHistory ? JSON.parse(saveHistory) : []
       })
+      //save input value to localStorage
       const [input, setInput] = useState(() => {
             const savedInput = localStorage.getItem('input')
             return savedInput ? JSON.parse(savedInput) : []
       })
-        
+      //save result value to localStorage
       const [result, setResult] = useState(() => {
             const savedResult = localStorage.getItem('result')
             return savedResult ? savedResult : ''
